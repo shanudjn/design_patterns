@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Subject_1 = require("./Subject");
+var Observer_1 = require("./Observer");
+var subject = new Subject_1.ConcreteSubject();
+var observer1 = new Observer_1.ConcreteObserverA();
+subject.subscribe(observer1);
+var observer2 = new Observer_1.ConcreteObserverB();
+subject.subscribe(observer2);
+subject.doSomeBusinessLogic();
+subject.doSomeBusinessLogic();
+subject.unsubscribe(observer2);
+subject.doSomeBusinessLogic();
