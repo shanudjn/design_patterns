@@ -1,13 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Subject_1 = require("./Subject");
-var Observer_1 = require("./Observer");
-var subject = new Subject_1.ConcreteSubject();
-var observer1 = new Observer_1.ConcreteObserverA();
-subject.subscribe(observer1);
-var observer2 = new Observer_1.ConcreteObserverB();
-subject.subscribe(observer2);
-subject.doSomeBusinessLogic();
-subject.doSomeBusinessLogic();
-subject.unsubscribe(observer2);
-subject.doSomeBusinessLogic();
+var Subscriber_1 = require("./Subscriber");
+var Notification_1 = require("./Notification");
+//
+// const subject =  new ConcreteSubject();
+// const observer1 = new ConcreteObserverA();
+// subject.subscribe(observer1);
+//
+// const observer2 = new ConcreteObserverB();
+// subject.subscribe(observer2);
+//
+// subject.doSomeBusinessLogic();
+// subject.doSomeBusinessLogic();
+//
+// subject.unsubscribe(observer2);
+//
+// subject.doSomeBusinessLogic();
+var notification = new Notification_1.NotificationConcrete();
+var subscriberA = new Subscriber_1.SubscriberA();
+var subscriberB = new Subscriber_1.SubscriberB();
+notification.subscribe(subscriberA);
+notification.subscribe(subscriberB);
+notification.setNewNotification("Merry Christmas!!");

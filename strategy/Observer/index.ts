@@ -1,16 +1,29 @@
 import {ConcreteSubject} from "./Subject";
 import {ConcreteObserverA, ConcreteObserverB} from "./Observer";
 
-const subject =  new ConcreteSubject();
-const observer1 = new ConcreteObserverA();
-subject.subscribe(observer1);
+import {Subscriber,SubscriberA, SubscriberB} from "./Subscriber";
+import {Notification, NotificationConcrete} from "./Notification";
+//
+// const subject =  new ConcreteSubject();
+// const observer1 = new ConcreteObserverA();
+// subject.subscribe(observer1);
+//
+// const observer2 = new ConcreteObserverB();
+// subject.subscribe(observer2);
+//
+// subject.doSomeBusinessLogic();
+// subject.doSomeBusinessLogic();
+//
+// subject.unsubscribe(observer2);
+//
+// subject.doSomeBusinessLogic();
 
-const observer2 = new ConcreteObserverB();
-subject.subscribe(observer2);
+const notification = new NotificationConcrete()
 
-subject.doSomeBusinessLogic();
-subject.doSomeBusinessLogic();
+const subscriberA = new SubscriberA();
+const subscriberB = new SubscriberB();
 
-subject.unsubscribe(observer2);
+notification.subscribe(subscriberA);
+notification.subscribe(subscriberB);
 
-subject.doSomeBusinessLogic();
+notification.setNewNotification("Merry Christmas!!")
